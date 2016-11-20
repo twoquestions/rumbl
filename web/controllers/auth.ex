@@ -15,7 +15,7 @@ defmodule Rumbl.Auth do
         {:error, :unauthorized, conn}
       true ->
         dummy_checkpw()
-        {:error, :not_Found, conn}
+        {:error, :not_found, conn}
     end
   end
 
@@ -45,8 +45,6 @@ defmodule Rumbl.Auth do
       true ->
         assign(conn, :current_user, nil)
     end
-    user = user_id && repo.get(Rumbl.User, user_id)
-    assign(conn, :current_user, user)
   end
 
   def login(conn, user) do
